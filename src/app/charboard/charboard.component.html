@@ -1,0 +1,51 @@
+<div class="container-fluid" *ngIf="!chconfirm">
+  <div class="col-12">  
+    <div class="chatconfirm" *ngIf="chType">
+        <form [formGroup]="form" (ngSubmit)="submitclick(form.value);">        
+            <div class="form-group" >
+                <input type="text" class="form-control" placeholder="Please Enter Email" formControlName="emailid"/>   
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Please Enter Shortname" formControlName="shortname"/>   
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Please Enter OTP" formControlName="otpnumber"/>   
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+        </form>
+    </div>
+    <div class="chatconfirm" *ngIf="!chType">
+            <form [formGroup]="iform" (ngSubmit)="submitclick(iform.value);">        
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Please Enter OTP" formControlName="otpnumber"/>   
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!iform.valid">Submit</button>
+            </form>
+        </div>
+  </div>  
+</div>
+<div class="chatDashboard" *ngIf="chconfirm">
+    <div class="participantsList">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let participant of participants;">
+              <p *ngIf="participant.short_name">{{participant.short_name}} <span>{{participant.onlineStatus}}</span></p>  
+              <p *ngIf="!participant.short_name">{{participant.emai_id}} <span>{{participant.onlineStatus}}</span></p>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="participantsMessage">
+        <div class="chat-lists" *ngFor="let chat of chatlists;">
+            <p>{{chat.message}}</p>
+            <span>{{chat.shortname}}</span>
+        </div>
+    </div>
+    <div class="messageContainer">
+        <div class="form-inline message-form">
+            <div class="form-group mx-sm-3">
+              <input type="text" class="form-control" [(ngModel)]="messageDetail">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="messageclick();" >Message</button>
+        </div>
+    </div>
+  </div>

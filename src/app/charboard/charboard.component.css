@@ -1,0 +1,85 @@
+.chatconfirm{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 300px;
+    transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+
+}
+.participantsList{
+    background: #fff;
+    float: left;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+
+}
+
+.participantsMessage{
+    background: #fff;
+    float: left;
+    width: 60%;
+    left: 25%;
+    top: 0;
+    height: 90%;
+    position: fixed;
+    overflow:auto;
+}
+
+.participantsMessage .chat-lists{
+    padding: 20px;
+    background: #76eaff;
+    float: left;
+    width: 95%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+.participantsMessage .chat-lists p {
+    font-size: 2rem;
+    float: left;
+    width: 100%;
+}
+.participantsMessage .chat-lists span{
+    float: right;
+}
+
+.messageContainer{
+    background: #333;
+    float: left;
+    width: 60%;
+    left: 25%;
+    bottom: 8px;
+    height: 8%;
+    position: fixed;
+    padding: 0 20px; 
+}
+.message-form{
+    width: 100%;
+    float: left;
+    
+
+}
+.message-form .form-group{
+    width:87%;
+    float: left;
+}
+.message-form .btn-primary{
+    float: left;
+}
+.message-form .form-group .form-control{
+    width: 100%;
+    float: left;
+}
+.message-form .form-group .form-control input{
+    width: 100%;
+}

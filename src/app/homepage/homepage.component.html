@@ -1,0 +1,46 @@
+<div class="container-fluid">  
+    <div class="col-12">
+        <div class="card card-abs">
+            <div class="card-header">
+                Create Session
+            </div>
+            <div class="card-body">
+                <div class="loginWidget" *ngIf="showEmail">
+                    <form [formGroup]="form" (ngSubmit)="onsubmit(form.value);">
+                        <div class="form-inline">
+                            <div class="form-group mx-sm-3">
+                              <input type="text" class="form-control"  placeholder="Enter Email" formControlName="email">
+                            </div>
+                            <div class="form-group mx-sm-3">
+                                <input type="text" class="form-control"  placeholder="Enter Shortname" formControlName="shortname">
+                              </div>
+                            <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+                            <div class="alert alert-danger" role="alert" *ngIf="alertTextBool">
+                                {{alertText}}
+                              </div>
+                        </div>
+                    </form>
+                    
+                  </div>
+                  <div class="usersWidget" *ngIf="addusers">
+                      <div class="form-inline" *ngFor="let inputs of inputsArray; let i = index">
+                          <div class="form-group mx-sm-3">
+                            <input type="text" class="form-control" placeholder="Enter Email" (focusout)="onChange($event.target.value)">
+                          </div>
+                          <button type="submit" class="btn btn-danger"(click)="delete(i)">Delete</button>
+                      </div>
+                      <button type="submit" class="btn btn-primary"(click)="addUsers();" [disabled]="!checkDisable(chkValidate)">Add users</button>
+                      <button type="submit" class="btn btn-primary"(click)="createUsers();" [disabled]="!checkDisable(chkValidate)">Submit</button>
+                    </div>
+                    <div class="userssesion" *ngIf="checkSession">
+                        <h2>Your user session is created please click below to start the sesssion</h2>
+                        <a href="{{pageUrl}}" class="btn btn-primary">Submit</a>
+                      </div>  
+                  </div>
+                  
+            </div>
+          </div>
+    </div>
+    
+  
+  
